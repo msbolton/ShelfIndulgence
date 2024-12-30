@@ -337,16 +337,16 @@ import { CommonModule } from '@angular/common';
         margin-top: 1rem;
       }
       #nx-cloud a {
-        color: rgba(107, 114, 128, 1);
-        display: block;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
+        border-radius: 0.75rem;
+        color: white;
+        background-color: hsla(214, 62%, 21%, 1);
+        display: inline-block;
         margin-top: 1.5rem;
-        text-align: right;
+        padding: 0.5rem 1rem;
+        text-align: left;
+        text-decoration: inherit;
       }
-      #nx-cloud a:hover {
-        text-decoration: underline;
-      }
+
       #commands {
         padding: 2.5rem 2rem;
         margin-top: 3.5rem;
@@ -739,17 +739,14 @@ import { CommonModule } from '@angular/common';
                   <span> Enable faster CI & better DX </span>
                 </h2>
               </div>
-              <p>
-                You can activate distributed tasks executions and caching by
-                running:
-              </p>
-              <pre>nx connect</pre>
+              <p>Your Nx Cloud remote cache setup is almost complete.</p>
+
               <a
-                href="https://nx.dev/nx-cloud?utm_source=nx-project"
+                href="https://cloud.nx.app/connect/XkCl0zDkwJ"
                 target="_blank"
                 rel="noreferrer"
               >
-                What is Nx Cloud?
+                Click here to finish
               </a>
             </div>
           </div>

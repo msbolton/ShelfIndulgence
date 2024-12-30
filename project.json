@@ -1,28 +1,28 @@
 {
   "name": "ShelfIndulgence",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "includedScripts": [],
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/ShelfIndulgence/src",
+  "sourceRoot": "./src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/ShelfIndulgence",
-        "index": "apps/ShelfIndulgence/src/index.html",
-        "main": "apps/ShelfIndulgence/src/main.ts",
+        "outputPath": "dist/ShelfIndulgence",
+        "index": "./src/index.html",
+        "main": "./src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/ShelfIndulgence/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
+        "tsConfig": "tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/ShelfIndulgence/public"
+            "input": "public"
           }
         ],
-        "styles": ["apps/ShelfIndulgence/src/styles.scss"],
+        "styles": ["./src/styles.css"],
         "scripts": []
       },
       "configurations": {
@@ -71,20 +71,22 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint"
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["./src"]
+      }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "apps/ShelfIndulgence/jest.config.ts"
+        "jestConfig": "jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "ShelfIndulgence:build",
-        "port": 4200,
         "spa": true
       }
     }

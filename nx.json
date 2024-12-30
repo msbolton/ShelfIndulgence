@@ -10,13 +10,11 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s",
-      "!{projectRoot}/test-setup.[jt]s",
-      "!{projectRoot}/cypress/**/*",
-      "!{projectRoot}/**/*.cy.[jt]s?(x)",
-      "!{projectRoot}/cypress.config.[jt]s"
+      "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
+  "nxCloudId": "6774975bd56afe22e5a12d90",
   "targetDefaults": {
     "@angular-devkit/build-angular:browser": {
       "cache": true,
@@ -44,34 +42,15 @@
           "codeCoverage": true
         }
       }
-    },
-    "e2e-ci--**/*": {
-      "dependsOn": ["^build"]
     }
   },
-  "plugins": [
-    {
-      "plugin": "@nx/cypress/plugin",
-      "options": {
-        "targetName": "e2e",
-        "openTargetName": "open-cypress",
-        "componentTestingTargetName": "component-test",
-        "ciTargetName": "e2e-ci"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
-  ],
   "generators": {
     "@nx/angular:application": {
-      "e2eTestRunner": "cypress",
+      "e2eTestRunner": "none",
       "linter": "eslint",
-      "style": "scss",
+      "style": "css",
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "defaultProject": "ShelfIndulgence"
 }
